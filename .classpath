@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output=".target" path="app"/>
+	<classpathentry kind="src" output=".target" path="test"/>
+	<classpathentry kind="src" path="target/scala-2.9.1/src_managed/main"/>
+	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/jcurses.jar" sourcepath="C:/Users/bwilliams/Dropbox/dev/scala/jcurses/src"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/org.scala-lang/scala-swing/jars/scala-swing-2.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/org.scalatest/scalatest_2.9.0/jars/scalatest_2.9.0-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/play/play_2.9.1/jars/play_2.9.1-2.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/com.typesafe/config/bundles/config-0.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/com.typesafe.akka/akka-actor/jars/akka-actor-2.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/com.typesafe.akka/akka-testkit/jars/akka-testkit-2.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/play/templates_2.9.1/jars/templates_2.9.1-2.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/org.apache.commons/commons-exec/jars/commons-exec-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/org.specs2/specs2_2.9.1/jars/specs2_2.9.1-1.12.3.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/org.specs2/specs2-scalaz-core_2.9.1/jars/specs2-scalaz-core_2.9.1-6.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/commons-lang/commons-lang/jars/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/play/play-test_2.9.1/jars/play-test_2.9.1-2.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/ivy2/cache/org.codehaus.jackson/jackson-core-asl/jars/jackson-core-asl-1.9.12.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

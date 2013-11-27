@@ -1,0 +1,97 @@
+========================================================
+
+How to run and debug JCurses applications in Eclipse under Windows.
+by Filip Lipski
+
+========================================================
+
+Hello, and welcome to this short guide explaining how to run and debug JCurses applications under Windows.
+
+If you already tried to run a JCurses app from inside Eclipse, I’m sure you failed because the IDE will try to bind System.out and System.err to the Eclipse console.
+
+
+========================================================
+How to run a JCurses application
+========================================================
+
+To work around the above mentioned problem, you first need to determine the command being used to start your program.
+
+Instructions:
+
+If you know which command Eclipse uses to launch your program, start at step 4.
+
+
+	Step 1) Run Java app as usual (it does not matter if it fails), and switch to the debug view.
+
+	Step 2) Right click on the process, and open the property window by selecting "Properties".
+
+	Step 3) Select and copy the command-line parameter used to launch the program.
+
+	Step 4) Hit the arrow-button next to "External Tools" (The play icon with a small red toolbox), and hit "External Tools Configuration"
+
+	Step 5) Create a new configuration, with the following data:
+		
+		Location: The path to the cmd.exe of your Windows OS.
+			For Example: C:\WINXP\system32\cmd.exe
+		
+		Working Directory: Whatever working directory you want.
+		
+		Arguments: "/c start C:\WINXP\system32\cmd.exe /k " followed by the previously copied command.
+			For Example:
+			
+			/c start C:\WINXP\system32\cmd.exe /k C:\Programme\Java\jre6\bin\java.exe -Dfile.encoding=Cp1252 -classpath "C:\Dokumente und 			Einstellungen\mccae\Eigene Dateien\javawork\TWCC+\bin" at.co.lipski.twcc2.console.TWCCDaemon
+
+	
+Please note, that you need to wrap paths containing whitespace with quotes (“).
+	
+The above command will start your application in a new, detached console window, which will stay open until you manually close it.
+Now you can launch your newly created configuration and enjoy your application from inside Eclipse.
+
+
+========================================================
+How to debug a JCurses application
+========================================================
+
+Debugging a JCurses application is similar to running it.
+Just do the same as above, but add debug commands to the arguments.
+
+Debugging this application will be done by using the remote debugging in Eclipse.
+
+The first thing you want to do, is to set up a remote java application.
+
+	Step 1) Hit the small arrow beside the debug icon, and hit "Debug Configurations"
+	
+	Step 2) Click on "Remote Java Application", and hit "New"
+	
+	Step 3) Then set up a socket which listens to a specific port (Socket listen)
+	(In my case the application will connect to the debugger and not the debugger to the application, which is more safe).
+	
+	Step 4) Get the console command used for debugging your application, by running it in debug mode and repeating the steps from above.
+	
+	Step 5) Create a new launch configuration, as done above. (This one will be used for debugging).
+	
+	Step 6) Adapt all settings and add the new arguments.
+		For Example:
+		
+		/c start C:\WINXP\system32\cmd.exe /k C:\Programme\Java\jre6\bin\java.exe -Xdebug -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:7420 -Dfile.encoding=Cp1252 -classpath "C:\Dokumente und Einstellungen\mccae\Eigene Dateien\javawork\TWCC+\bin" at.co.lipski.twcc2.console.TWCCDaemon
+	
+	Step 7) Adjust the arguments for your needs. You might want to change the port specified in the "address=" part.
+	
+	Step 8) To finally debug your application, launch the newly created remote debug configuration created in step 2.
+	
+	Step 9) Start the launch configuration.
+
+	
+You can do it the other way too, and let the debugger attach to the application.
+
+If you do that, please be careful, so no stranger can attach himself to your program.
+
+To let the debugger attach to your program, you need to add the "server=y" parameter to the launch configuration, and change the remote debug configuration to "Socket attach" mode.
+
+
+========================================================
+The end
+========================================================
+
+Thank you for reading this guide.
+If you have any further questions, please contact me under “mccae at users.sourceforge.net”.
